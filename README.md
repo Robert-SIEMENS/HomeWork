@@ -9,7 +9,7 @@ I'm a Quality Assurance Engineer 💻
 I love the entire process of developing creative websites. I love the challenge of finding caches and spending time to meet new people.
 ### 🤝 Connect with me:
 
-<a href="https://www.linkedin.com/in/robertpoghosyan/"></a>
+<a href="https://www.linkedin.com/in/robertpoghosyan/">LinkedIn</a>
 
 </br>
 - 💬 If you have any question/feedback, please do not hesitate to reach out to me!
