@@ -6,7 +6,7 @@ Hi there, I'm <a href="https://www.yushi.dev/" target="_blank" rel="noreferrer">
 I'm a Quality Assurance Engineer 💻
 </h2> 
 
-I love the entire process of developing creative websites. I love the challenge of finding caches and spending time to meet new people.
+I love the challenge of finding caches and spending time to meet new people.
 ### 🤝 Connect with me:
 
 <a href="https://www.linkedin.com/in/robertpoghosyan/">LinkedIn</a>
