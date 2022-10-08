@@ -1,5 +1,5 @@
 <h3 align="center">
-Hi there, I'm <a href="https://www.yushi.dev/" target="_blank" rel="noreferrer">Robert</a> 👋
+  Hi there, I'm <b>Robert</b> 👋
 </h3>
 
 <h2 align="center">
