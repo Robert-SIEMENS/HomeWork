@@ -1,313 +1,313 @@
 #######################################################################################################################################################
-# 																		4. Find         										                      # 
+#                                                                         4. Find                                                                     #
 #######################################################################################################################################################
 *******************************************************************************************************************************************************
-*																																					  *
-*														# 4.1 get all items in the directory "training"												  *
-*																																					  *
-* ->	1) find training -name "*"																													  *
-* ->  	2) ls -R																																	  *
-* ->  	3) tree training																															  *									
-*																																					  *																																					  *
+*                                                                                                                                                     *
+*                                                        # 4.1 get all items in the directory "training"                                              *
+*                                                                                                                                                     *
+* ->    1) find training -name "*"                                                                                                                    *
+* ->      2) ls -R                                                                                                                                    *
+* ->      3) tree training                                                                                                                            *                                    
+*                                                                                                                                                     *                                                                                                                                                      *
 *******************************************************************************************************************************************************
-*																																					  *
-*														# 4.2 get all subdirectories in "training" dir												  *
-*																																					  *
-* ->	1) find training -type d -name "*"																											  *
-* ->	2) tree -d training																															  *
-*																																					  *
+*                                                                                                                                                     *
+*                                                        # 4.2 get all subdirectories in "training" dir                                               *
+*                                                                                                                                                     *
+* ->    1) find training -type d -name "*"                                                                                                            *
+* ->    2) tree -d training                                                                                                                           *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-*																																					  *
-*															# 4.3 get subdirectories named "path" 													  *
-*													(I suppose you mean within the "training" directory)						 					  *
-*																																					  *
-* ->	1)	find training -type d -name "path"																										  *
-* ->	2)	tree training -d -P path																												  *
-* 																																					  *	
+*                                                                                                                                                     *
+*                                                            # 4.3 get subdirectories named "path"                                                    *
+*                                                    (I suppose you mean within the "training" directory)                                             *
+*                                                                                                                                                     *
+* ->    1)    find training -type d -name "path"                                                                                                      *
+* ->    2)    tree training -d -P path                                                                                                                *
+*                                                                                                                                                     *    
 *******************************************************************************************************************************************************
-*																																					  *
-*										 						# 4.4 get all files     															  *
-*												(I suppose you mean within the "training" directory)												  *
-*																																					  *
-* ->	find training -type f																														  *
-*																																				      *
+*                                                                                                                                                     *
+*                                                                 # 4.4 get all files                                                                 *
+*                                                (I suppose you mean within the "training" directory)                                                 *
+*                                                                                                                                                     *
+* ->    find training -type f                                                                                                                         *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-*																																					  *
-*															# 4.5 get all filed named "setup"														  *
-*												(I suppose you mean within the "training" directory)												  *
-*																																					  *
-* ->	find training -type f -name "setup"																										      *
-*																																					  *
+*                                                                                                                                                     *
+*                                                            # 4.5 get all filed named "setup"                                                        *
+*                                                (I suppose you mean within the "training" directory)                                                 *
+*                                                                                                                                                     *
+* ->    find training -type f -name "setup"                                                                                                           *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-*																																					  *
-*											# 4.6 create a copy of all files named "setup" as "setup_tst.bak"										  *
-*																																					  *
-* 1st version. I suppose all files named "setup" within the training directory need to be copied as setup_tsk.bak within the current directory		  *
-*															   																						  *
-* ->	find training -type f -name "setup" -exec cp "{}" "{}_tst.bak" \;																			  *
-*																																					  *
-* 2nd version. If you want to create "setup_tst.bak" folder and move there a copy of all files named "setup"										  *
-*			   Yes, I know this is a bash script and we haven't gone through it yet, but I can explain												  *
-*																																					  *
-* ->	mkdir setup_tst.bak																															  *
-* ->	find $HOME/training/ -type f -name "setup" | while read f; do cp "$f" $HOME/setup_tst.bak/"${f//\//_}"; done								  *
-*																																				      *
+*                                                                                                                                                     *
+*                                            # 4.6 create a copy of all files named "setup" as "setup_tst.bak"                                        *
+*                                                                                                                                                     *
+* 1st version. I suppose all files named "setup" within the training directory need to be copied as setup_tsk.bak within the current directory        *
+*                                                                                                                                                     *
+* ->    find training -type f -name "setup" -exec cp "{}" "{}_tst.bak" \;                                                                             *
+*                                                                                                                                                     *
+* 2nd version. If you want to create "setup_tst.bak" folder and move there a copy of all files named "setup"                                          *
+*               Yes, I know this is a bash script and we haven't gone through it yet, but I can explain                                               *
+*                                                                                                                                                     *
+* ->    mkdir setup_tst.bak                                                                                                                           *
+* ->    find $HOME/training/ -type f -name "setup" | while read f; do cp "$f" $HOME/setup_tst.bak/"${f//\//_}"; done                                  *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-*																																					  *
-*											# 4.7 rename all "*.pdf" files under "practice/tasks1" to "*.pdf_backup"								  *
-*																																				      *
-* ->	find $HOME/training/linux_training/practice/tasks1 -type f -name "*pdf" -exec mv "{}" "{}_backup" \;										  *
-*																																					  *
+*                                                                                                                                                     *
+*                                            # 4.7 rename all "*.pdf" files under "practice/tasks1" to "*.pdf_backup"                                 *
+*                                                                                                                                                     *
+* ->    find $HOME/training/linux_training/practice/tasks1 -type f -name "*pdf" -exec mv "{}" "{}_backup" \;                                          *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-*																																					  *
-*														# 4.8 remove all subdirectories named "path"												  *
-*																																					  *
-* ->	find training -type d -name "path" | xargs rm -rf																							  *
-*																																					  *
+*                                                                                                                                                     *
+*                                                        # 4.8 remove all subdirectories named "path"                                                 *
+*                                                                                                                                                     *
+* ->    find training -type d -name "path" | xargs rm -rf                                                                                             *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-*																																					  *
-*															# 4.9 remove all files named "setup"													  *
-*																																					  *
-* ->	find training -type f -name "setup" | xargs rm																								  *
-*																																					  *
+*                                                                                                                                                     *
+*                                                            # 4.9 remove all files named "setup"                                                     *
+*                                                                                                                                                     *
+* ->    find training -type f -name "setup" | xargs rm                                                                                                *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-*																																					  *
-* 													# 4.10 how many hidden files do you have in your home											  *
-* 																																					  *
-* ->	find . -type f -name ".*" | wc -l																										      *
-*																																					  *
+*                                                                                                                                                     *
+*                                                     # 4.10 how many hidden files do you have in your home                                           *
+*                                                                                                                                                     *
+* ->    find . -type f -name ".*" | wc -l                                                                                                             *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-* 																																					  *
-*												# 4.11 how many hidden direotories do you have in your home											  *
-*																																					  *
-* ->	find . -type d -name ".*" | wc -l																											  *
-*																																					  *
+*                                                                                                                                                     *
+*                                                # 4.11 how many hidden direotories do you have in your home                                          *
+*                                                                                                                                                     *
+* ->    find . -type d -name ".*" | wc -l                                                                                                             *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
 #######################################################################################################################################################
-# 																		5. Grep		      										                      #
+#                                                                         5. Grep                                                                     #
 #######################################################################################################################################################
 *******************************************************************************************************************************************************
-*																																					  *
-*  											#5.1 get all lines from "practice/tasks1/grepdata.txt"													  *
-*													containing phone numbere with an extension 														  *
-*														(x or X followed by 4 digit number)															  *
-*																																					  *
-* ->	grep -in "x[0-9]\{4\}" grepdata.txt																											  *
-*																																					  *
-* if you only need a line number without content																									  *
-* ->	grep -in "x[0-9]\{4\}" grepdata.txt | cut -d ":" -f1																						  *
-*																																					  *
+*                                                                                                                                                     *
+*                                              #5.1 get all lines from "practice/tasks1/grepdata.txt"                                                 *
+*                                                    containing phone numbere with an extension                                                       *
+*                                                        (x or X followed by 4 digit number)                                                          *
+*                                                                                                                                                     *
+* ->    grep -in "x[0-9]\{4\}" grepdata.txt                                                                                                           *
+*                                                                                                                                                     *
+* if you only need a line number without content                                                                                                      *
+* ->    grep -in "x[0-9]\{4\}" grepdata.txt | cut -d ":" -f1                                                                                          *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-*																																					  *
-*											#5.2 get all lines beginning with three digits and followed by space									  *
-*												(I suppose you mean within the "practice/tasks1/grepdata.txt" file)									  *
-* 																																					  *
-* ->	grep -in "^[0-9]\{3\}" grepdata.txt											  															  	  *
-*																																					  *
-* if you only need a line number without content																									  *
-* ->	grep -in "^[0-9]\{3\}" grepdata.txt | cut -d ":" -f1																						  *
-*																																					  *
+*                                                                                                                                                     *
+*                                            #5.2 get all lines beginning with three digits and followed by space                                     *
+*                                                (I suppose you mean within the "practice/tasks1/grepdata.txt" file)                                  *
+*                                                                                                                                                     *
+* ->    grep -in "^[0-9]\{3\}" grepdata.txt                                                                                                           *
+*                                                                                                                                                     *
+* if you only need a line number without content                                                                                                      *
+* ->    grep -in "^[0-9]\{3\}" grepdata.txt | cut -d ":" -f1                                                                                          *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-*																																					  *
-*														#5.3 get all lines containing date															  *
-*												(I suppose you mean within the "practice/tasks1/grepdata.txt" file)									  *
-* 																																					  *
-* ->	grep -in "^[0-9]\{3\}. [0-9]" grepdata.txt									  															  	  *
-*																																					  *
-* if you only need a line number without content																									  *
-* ->	grep -in "^[0-9]\{3\}" grepdata.txt | cut -d ":" -f1																						  *
-*																																					  *
-*******************************************************************************************************************************************************		
-*																																					  *
-*													#5.4 get all lines not beginning with capital "S"												  *
-*												(I suppose you mean within the "practice/tasks1/grepdata.txt" file)									  *
-* 																																					  *
-* ->	grep -vn "^S" grepdata.txt									  															  					  *
-*																																					  *
-* if you only need a line number without content																									  *
-* ->	grep -in "^S" grepdata.txt | cut -d ":" -f1																						 			  *
-*																																					  *
-*******************************************************************************************************************************************************				
-*																																					  *
-*													#5.5 get all lines containing "CA" independently on case 										  *
-*												(I suppose you mean within the "practice/tasks1/grepdata.txt" file)									  *
-* 																																					  *
-* ->	grep -in "CA" grepdata.txt									  															  					  *
-*																																					  *
-* if you only need a line number without content																									  *
-* ->	grep -in "CA" grepdata.txt | cut -d ":" -f1																						 			  *
-*																																					  *
-*******************************************************************************************************************************************************	
-*																																					  *
-*													        #5.6 get all lines with e-mail addresses 												  *
-*												(I suppose you mean within the "practice/tasks1/grepdata.txt" file)									  *
-* 																																					  *
-* ->	grep -n "@" grepdata.txt									  															  					  *
-*																																					  *
-* if you only need a line number without content																									  *
-* ->	grep -n "@" grepdata.txt | cut -d ":" -f1																						 			  *
-*																																					  *
-*******************************************************************************************************************************************************		
-*																																					  *
-*													        #5.7 get all lines cotaining "de" as a complete word  									  *
-*												(I suppose you mean within the "practice/tasks1/grepdata.txt" file)									  *
-* 																																					  *
-* ->	grep -wn "de" grepdata.txt									  															  					  *
-*																																					  *
-* if you only need a line number without content																									  *
-* ->	grep -wn "de" grepdata.txt | cut -d ":" -f1																						 			  *
-*																																					  *
+*                                                                                                                                                     *
+*                                                        #5.3 get all lines containing date                                                           *
+*                                                (I suppose you mean within the "practice/tasks1/grepdata.txt" file)                                  *
+*                                                                                                                                                     *
+* ->    grep -in "^[0-9]\{3\}. [0-9]" grepdata.txt                                                                                                    *
+*                                                                                                                                                     *
+* if you only need a line number without content                                                                                                      *
+* ->    grep -in "^[0-9]\{3\}" grepdata.txt | cut -d ":" -f1                                                                                          *
+*                                                                                                                                                     *
+*******************************************************************************************************************************************************        
+*                                                                                                                                                     *
+*                                                    #5.4 get all lines not beginning with capital "S"                                                *
+*                                                (I suppose you mean within the "practice/tasks1/grepdata.txt" file)                                  *
+*                                                                                                                                                     *
+* ->    grep -vn "^S" grepdata.txt                                                                                                                    *
+*                                                                                                                                                     *
+* if you only need a line number without content                                                                                                      *
+* ->    grep -in "^S" grepdata.txt | cut -d ":" -f1                                                                                                   *
+*                                                                                                                                                     *
+*******************************************************************************************************************************************************                
+*                                                                                                                                                     *
+*                                                    #5.5 get all lines containing "CA" independently on case                                         *
+*                                                (I suppose you mean within the "practice/tasks1/grepdata.txt" file)                                  *
+*                                                                                                                                                     *
+* ->    grep -in "CA" grepdata.txt                                                                                                                    *
+*                                                                                                                                                     *
+* if you only need a line number without content                                                                                                      *
+* ->    grep -in "CA" grepdata.txt | cut -d ":" -f1                                                                                                   *
+*                                                                                                                                                     *
+*******************************************************************************************************************************************************    
+*                                                                                                                                                     *
+*                                                            #5.6 get all lines with e-mail addresses                                                 *
+*                                                (I suppose you mean within the "practice/tasks1/grepdata.txt" file)                                  *
+*                                                                                                                                                     *
+* ->    grep -n "@" grepdata.txt                                                                                                                      *
+*                                                                                                                                                     *
+* if you only need a line number without content                                                                                                      *
+* ->    grep -n "@" grepdata.txt | cut -d ":" -f1                                                                                                     *
+*                                                                                                                                                     *
+*******************************************************************************************************************************************************        
+*                                                                                                                                                     *
+*                                                            #5.7 get all lines cotaining "de" as a complete word                                     *
+*                                                (I suppose you mean within the "practice/tasks1/grepdata.txt" file)                                  *
+*                                                                                                                                                     *
+* ->    grep -wn "de" grepdata.txt                                                                                                                    *
+*                                                                                                                                                     *
+* if you only need a line number without content                                                                                                      *
+* ->    grep -wn "de" grepdata.txt | cut -d ":" -f1                                                                                                   *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
-*																																					  *
-*													        #5.8 get all lines not containing the word "Sep." 										  *
-*												(I suppose you mean within the "practice/tasks1/grepdata.txt" file)									  *
-* 																																					  *
-* ->	grep -wvn "Sep." grepdata.txt									  															  				  *
-*																																					  *
-* if you only need a line number without content																									  *
-* ->	grep -wvn "Sep." grepdata.txt | cut -d ":" -f1																								  *
-*																																					  *
+*                                                                                                                                                     *
+*                                                            #5.8 get all lines not containing the word "Sep."                                        *
+*                                                (I suppose you mean within the "practice/tasks1/grepdata.txt" file)                                  *
+*                                                                                                                                                     *
+* ->    grep -wvn "Sep." grepdata.txt                                                                                                                 *
+*                                                                                                                                                     *
+* if you only need a line number without content                                                                                                      *
+* ->    grep -wvn "Sep." grepdata.txt | cut -d ":" -f1                                                                                                *
+*                                                                                                                                                     *
 *******************************************************************************************************************************************************
 ###################################################################################################################################################################################################################################################################################
-# 																		6. Mix 	      										                          																															  #
+#                                                                         6. Mix                                                                                                                                                                                                  #
 ###################################################################################################################################################################################################################################################################################
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																																																				  *
-*  									  #6.1 Unpack "tasks2.tar.gz" under the/into "workdir" directory																																				    						  *
-*																																																																				  *
-* ->	cd training/linux_training/practice																											  																															  *
-* -> 	mkdir workdir																																 																															  *
-* ->	tar xf tasks.tar.gz -C workdir																					  							 																															  *
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                        #6.1 Unpack "tasks2.tar.gz" under the/into "workdir" directory                                                                                                                                                                           *
+*                                                                                                                                                                                                                                                                                 *
+* ->    cd training/linux_training/practice                                                                                                                                                                                                                                       *
+* ->     mkdir workdir                                                                                                                                                                                                                                                            *
+* ->    tar xf tasks.tar.gz -C workdir                                                                                                                                                                                                                                            *
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																																																				  *
-*  							         #6.2 Get the count of directories under the "sw" folder containing "cst" in the name																																						  *
-*																																																																				  *
-* ->	find $HOME/training/linux_training/practice/tasks2/taskdir/sw -type d -name "*cst*" | wc -l																																												  *
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.2 Get the count of directories under the "sw" folder containing "cst" in the name                                                                                                                                                      *
+*                                                                                                                                                                                                                                                                                 *
+* ->    find $HOME/training/linux_training/practice/tasks2/taskdir/sw -type d -name "*cst*" | wc -l                                                                                                                                                                               *
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.3 Get the largest directory inside the "sw" folder, print in "<full_path>: <largest_dir_name>" format			 																														  *
-*																																																																				  *
-* ->	echo `du $HOME/training/linux_training/practice/tasks2/taskdir/sw/./* | sort -nr | head -n 1 | cut -d "/" -f2- | cut -d "." -f1`:`du $HOME/training/linux_training/practice/tasks2/taskdir/sw/./* | sort -nr | head -n 1 | cut -d "/" -f2- | cut -d "." -f2 | cut -c 2-`  *
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.3 Get the largest directory inside the "sw" folder, print in "<full_path>: <largest_dir_name>" format                                                                                                                                  *
+*                                                                                                                                                                                                                                                                                 *
+* ->    echo `du $HOME/training/linux_training/practice/tasks2/taskdir/sw/./* | sort -nr | head -n 1 | cut -d "/" -f2- | cut -d "." -f1`:`du $HOME/training/linux_training/practice/tasks2/taskdir/sw/./* | sort -nr | head -n 1 | cut -d "/" -f2- | cut -d "." -f2 | cut -c 2-`  *
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.4 using "a" and "b" variables assigned to "cell_names.sh" and "techlib.tcl" values correspondingly																																		  *
-*												(a="cell_names.sh" and b="techlib.tcl") form new filename called "techlib_names.sh"			 																														 			  *
-*																																																																				  *
-* -> sudo apt install vim																																																														  *
-* -> touch techlib_names.sh																																																														  *
-* -> vim techlib_names.sh																																																														  *
-* 																																																																				  *
-* write to this file and save using vim																																																											  *
-* -> #!/bin/bash																																																																  *
-* -> a="cell_names.sh"																																																															  *
-* -> b="techlib.tcl"																																																															  *
-*																																																																			      *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.4 using "a" and "b" variables assigned to "cell_names.sh" and "techlib.tcl" values correspondingly                                                                                                                                     *
+*                                                (a="cell_names.sh" and b="techlib.tcl") form new filename called "techlib_names.sh"                                                                                                                                              *
+*                                                                                                                                                                                                                                                                                 *
+* -> sudo apt install vim                                                                                                                                                                                                                                                         *
+* -> touch techlib_names.sh                                                                                                                                                                                                                                                       *
+* -> vim techlib_names.sh                                                                                                                                                                                                                                                         *
+*                                                                                                                                                                                                                                                                                 *
+* write to this file and save using vim                                                                                                                                                                                                                                           *
+* -> #!/bin/bash                                                                                                                                                                                                                                                                  *
+* -> a="cell_names.sh"                                                                                                                                                                                                                                                            *
+* -> b="techlib.tcl"                                                                                                                                                                                                                                                              *
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.5 Find "dirn2" directory and make it removable for owner only																																											  *
-*																																																																				  *
-* -> chmod 100 dirn2																																																															  *
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.5 Find "dirn2" directory and make it removable for owner only                                                                                                                                                                          *
+*                                                                                                                                                                                                                                                                                 *
+* -> chmod 100 dirn2                                                                                                                                                                                                                                                              *
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.6 Copy "limk_dir" to "cp_dir" by traversing all simlinks into directories 																																								  *
-*																																																																				  *
-* -> cp -rL limk_dir cp_dir																																																														  *
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.6 Copy "limk_dir" to "cp_dir" by traversing all simlinks into directories                                                                                                                                                              *
+*                                                                                                                                                                                                                                                                                 *
+* -> cp -rL limk_dir cp_dir                                                                                                                                                                                                                                                       *
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.7 Remove all empty files within the tasks2 tree 																																														  *
-*																																																																				  *		  
-* -> find training/linux_training/practice/tasks2 -type f -empty -exec rm {} \;																																																	  *	
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.7 Remove all empty files within the tasks2 tree                                                                                                                                                                                        *
+*                                                                                                                                                                                                                                                                                 *          
+* -> find training/linux_training/practice/tasks2 -type f -empty -exec rm {} \;                                                                                                                                                                                                   *    
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.8 Remove all empty files from the current folder only 																																													  *
-*																																																																				  *																											    																														  
-* -> find . -maxdepth 1 -type f -empty -exec rm {} \;																																																							  *																																																							  
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.8 Remove all empty files from the current folder only                                                                                                                                                                                  *
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                          
+* -> find . -maxdepth 1 -type f -empty -exec rm {} \;                                                                                                                                                                                                                             *                                                                                                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.9 Go to physical directory to which the "link_dir/tst_small" points to 																																									  *
-*																																																																				  *																											    																															  
-* -> cd limk_dir/tst_small        ???																																																											  
-* -> cd `pwd -P`																																																																  *																																																							  
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.9 Go to physical directory to which the "link_dir/tst_small" points to                                                                                                                                                                 *
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                              
+* -> cd limk_dir/tst_small        ???                                                                                                                                                                                                                                             * 
+* -> cd `pwd -P`                                                                                                                                                                                                                                                                  *                                                                                                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.10 Get filesize and filename pairs (up to second level including links and sizes of all subdirectories) from biggest to smallest into "file_size_list" file																				  *
-*																																																																				  *	
-* -> find . -maxdepth 2 | ls -laS | awk '{print $5,"\t" ,$9}' > file_size_list																																																	  *	
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.10 Get filesize and filename pairs (up to second level including links and sizes of all subdirectories) from biggest to smallest into "file_size_list" file                                                                            *
+*                                                                                                                                                                                                                                                                                 *    
+* -> find . -maxdepth 2 | ls -laS | awk '{print $5,"    " ,$9}' > file_size_list                                                                                                                                                                                                  *    
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.11 merge "Xor.t_o_o.only" & "Xor.t_o_o_only.prop files from "tst" directory into single file called "xor.log". Multiple empty lines should be replaced with the single empty line in the resulting file 								  *
-*																																																																				  *
-* -> cat -s Xor.t_o_o.only Xor.t_o_o_only.prop > xor.log																																																						  *	
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.11 merge "Xor.t_o_o.only" & "Xor.t_o_o_only.prop files from "tst" directory into single file called "xor.log". Multiple empty lines should be replaced with the single empty line in the resulting file                                *
+*                                                                                                                                                                                                                                                                                 *
+* -> cat -s Xor.t_o_o.only Xor.t_o_o_only.prop > xor.log                                                                                                                                                                                                                          *    
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.12 print the resulting "xor.log" file's size at the end of the latter 																																									  *
-*																																																																				  *
-* -> ls -l xor.log | awk '{print $5}' >> xor.log																																																								  *	
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.12 print the resulting "xor.log" file's size at the end of the latter                                                                                                                                                                  *
+*                                                                                                                                                                                                                                                                                 *
+* -> ls -l xor.log | awk '{print $5}' >> xor.log                                                                                                                                                                                                                                  *    
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.13 get lines matching "DDR" pattern from "tst/dir2/summary_report" in <line_number>: <matched_text> format; print the number of occurence of "S08" among the latter  																	  *																																			  
-*																																																																				  *																											    																															  
-* -> grep -in "DDR" summary_report																																																												  *
-* -> grep -in "DDR" summary_report | grep -in "S08" | wc -l																																																						  *		
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.13 get lines matching "DDR" pattern from "tst/dir2/summary_report" in <line_number>: <matched_text> format; print the number of occurence of "S08" among the latter                                                                    *                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                              
+* -> grep -in "DDR" summary_report                                                                                                                                                                                                                                                *
+* -> grep -in "DDR" summary_report | grep -in "S08" | wc -l                                                                                                                                                                                                                       *        
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.14 find all directories with 755 pemrissions under "taskdir" and provide write access to the group  																																	  *																																			  
-*																																																																				  *																											    																															  
-* -> find $HOME/training/linux_training/practice/tasks2/taskdir -type f -perm 664 -exec chmod g+w {} \;																																											  *		
-*																																																																				  *
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.14 find all directories with 755 pemrissions under "taskdir" and provide write access to the group                                                                                                                                     *                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                              
+* -> find $HOME/training/linux_training/practice/tasks2/taskdir -type f -perm 664 -exec chmod g+w {} \;                                                                                                                                                                           *        
+*                                                                                                                                                                                                                                                                                 *
 ***********************************************************************************************************************************************************************************************************************************************************************************
-*																																					 																															  *
-*  							         #6.15 Calculate and display the disk usage of all files and directories under "taskdir" folder except the ones with "tcl" extension; write output into the file called "-abc.txt"  														  *																																			  
-*																																																																				  *																											    																															  
-* -> find ! -name "*.tcl" | xargs du -ch > -abs.txt																																										 														  *		
-*																																																																				  *
-***********************************************************************************************************************************************************************************************************************************************************************************		
-*																																					 																															  *
-*  							         #6.16 Get content between the 10th and 20th lines inclusively from "-abc.txt" 																																								  *																																			  
-*																																																																				  *																											    																															  
-* -> sed -n '10,20p' ./-abs.txt																																															 														  *		
-*																																																																				  *
-***********************************************************************************************************************************************************************************************************************************************************************************						
-*																																					 																															  *
-*  							         #6.17 Copy "path" folder from "sw/sw_all1x/golden" into "tsty", "tst1", "tst_small" folders using single copy statement  																													  *																																			  
-*																																																																				  *																											    																															  
-* -> find tsty tst1 tst_small -maxdepth 0 -exec cp -r sw/sw_all1x/golden/path																																																	  *		
-*																																																																				  *
-***********************************************************************************************************************************************************************************************************************************************************************************		
-*																																					 																															  *
-*  							         #6.18 get all files containing "summary" in the name and archieve them   																																									  *																																			  
-*																																																																				  *																											    																															  
-* -> find -type f -name "*summary*" | xargs tar -zcvf data.tar.gz																																																				  *		
-*																																																																				  *
-***********************************************************************************************************************************************************************************************************************************************************************************					
-*																																					 																															  *
-*  							         #6.19 get all files from "dir1/dirn2" directory with the names starting with "s" followed by any of the characters "a", "b", "d", "c", "I", "o" and ending with "st.sh"  																	  *																																			  
-*																																																																				  *																											    																															  
-* -> find dir1/dirn2 -name '[s]*[a,b,c,d,I,o]*[st.sh]'																																																							  *		
-*																																																																				  *
-***********************************************************************************************************************************************************************************************************************************************************************************				
-*																																					 																															  *
-*  							         #6.20 get all files from "dir1/dirn2" starting with any two characters followed by "st" and ending with one or more occurences of any character  																							  *																																			  
-*																																																																				  *																											    																															  
-* -> find dir1/dirn2 -name '??st?*'																																																												  *		
-*																																																																				  *
-***********************************************************************************************************************************************************************************************************************************************************************************				
-*																																					 																															  *
-*  							         #6.21 get all files from "dir1/dirn2" starting with either "l" or "s" characters not followed by one "i", "b" or "o", followed by any single character, followed by "t" and any other character afterwerds  								  *																																			  
-*																																																																				  *																											    																															  
-* -> find dir1/dirn2 -name '[I,s]?t?*' ! -name '*[i,b,o]*'																																																						  *		
-*																																																																				  *
-***********************************************************************************************************************************************************************************************************************************************************************************				
-				
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.15 Calculate and display the disk usage of all files and directories under "taskdir" folder except the ones with "tcl" extension; write output into the file called "-abc.txt"                                                         *                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                              
+* -> find ! -name "*.tcl" | xargs du -ch > -abs.txt                                                                                                                                                                                                                               *        
+*                                                                                                                                                                                                                                                                                 *
+***********************************************************************************************************************************************************************************************************************************************************************************        
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.16 Get content between the 10th and 20th lines inclusively from "-abc.txt"                                                                                                                                                             *                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                              
+* -> sed -n '10,20p' ./-abs.txt                                                                                                                                                                                                                                                   *        
+*                                                                                                                                                                                                                                                                                 *
+***********************************************************************************************************************************************************************************************************************************************************************************                        
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.17 Copy "path" folder from "sw/sw_all1x/golden" into "tsty", "tst1", "tst_small" folders using single copy statement                                                                                                                   *                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                              
+* -> find tsty tst1 tst_small -maxdepth 0 -exec cp -r sw/sw_all1x/golden/path                                                                                                                                                                                                     *        
+*                                                                                                                                                                                                                                                                                 *
+***********************************************************************************************************************************************************************************************************************************************************************************        
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.18 get all files containing "summary" in the name and archieve them                                                                                                                                                                    *                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                              
+* -> find -type f -name "*summary*" | xargs tar -zcvf data.tar.gz                                                                                                                                                                                                                 *        
+*                                                                                                                                                                                                                                                                                 *
+***********************************************************************************************************************************************************************************************************************************************************************************                    
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.19 get all files from "dir1/dirn2" directory with the names starting with "s" followed by any of the characters "a", "b", "d", "c", "I", "o" and ending with "st.sh"                                                                   *                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                              
+* -> find dir1/dirn2 -name '[s]*[a,b,c,d,I,o]*[st.sh]'                                                                                                                                                                                                                            *        
+*                                                                                                                                                                                                                                                                                 *
+***********************************************************************************************************************************************************************************************************************************************************************************                
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.20 get all files from "dir1/dirn2" starting with any two characters followed by "st" and ending with one or more occurences of any character                                                                                           *                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                              
+* -> find dir1/dirn2 -name '??st?*'                                                                                                                                                                                                                                               *        
+*                                                                                                                                                                                                                                                                                 *
+***********************************************************************************************************************************************************************************************************************************************************************************                
+*                                                                                                                                                                                                                                                                                 *
+*                                       #6.21 get all files from "dir1/dirn2" starting with either "l" or "s" characters not followed by one "i", "b" or "o", followed by any single character, followed by "t" and any other character afterwerds                                *                                                                                                                                              
+*                                                                                                                                                                                                                                                                                 *                                                                                                                                                                                                                                              
+* -> find dir1/dirn2 -name '[I,s]?t?*' ! -name '*[i,b,o]*'                                                                                                                                                                                                                        *        
+*                                                                                                                                                                                                                                                                                 *
+***********************************************************************************************************************************************************************************************************************************************************************************                
+                
